@@ -4,10 +4,7 @@ class Solution {
         for(int n : nums)
         {
             arr[n]++;
-        }
-        for(int n : arr)
-        {
-            if(n > 2)
+            if(arr[n] > 2)
             {
                 return false;
             }
