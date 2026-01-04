@@ -1,11 +1,6 @@
 class Solution {
     public boolean isPossibleToSplit(int[] nums) {
-        int max = 0;
-        for(int n : nums)
-        {
-            max = Math.max(n,max);
-        }
-        int arr[] = new int[max+1];
+        int arr[] = new int[101];
         for(int n : nums)
         {
             arr[n]++;
