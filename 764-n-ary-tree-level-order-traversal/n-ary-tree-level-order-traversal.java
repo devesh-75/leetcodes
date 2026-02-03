@@ -25,7 +25,6 @@ class Solution {
             return res;
         }
         Queue<Node> queue = new LinkedList<>();
-        
         queue.offer(root);
         while(!queue.isEmpty())
         {
@@ -38,10 +37,9 @@ class Solution {
                 temp.add(n.val);
                 if(n.children != null)
                 {
-                    for(Node child : n.children)
-                    {
-                        queue.offer(child);
-                    }
+                    
+                        queue.addAll(n.children);
+                    
                 }
             }
             res.add(temp);
