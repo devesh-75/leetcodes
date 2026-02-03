@@ -34,13 +34,9 @@ class Solution {
             for(int i=0; i<level; i++)
             {
                 Node n = queue.poll();
-                temp.add(n.val);
-                if(n.children != null)
-                {
-                    
-                        queue.addAll(n.children);
-                    
-                }
+                temp.add(n.val); 
+                queue.addAll(n.children);
+
             }
             res.add(temp);
 
