@@ -23,9 +23,9 @@ class Solution {
             s = s.next;
         }
         k = k % count;
-        int n = count - k;
+        int n = count - k  -1;
         s.next = head;
-        while(n-- > 1)
+        while(n-- > 0)
         {
             l = l.next;
         }
