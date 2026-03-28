@@ -1,63 +1,27 @@
-/*
-// Definition for a Node.
-class Node {
-    public int val;
-    public Node left;
-    public Node right;
-    public Node next;
-
-    public Node() {}
-    
-    public Node(int _val) {
-        val = _val;
-    }
-
-    public Node(int _val, Node _left, Node _right, Node _next) {
-        val = _val;
-        left = _left;
-        right = _right;
-        next = _next;
-    }
-};
-*/
-
 class Solution {
     public Node connect(Node root) {
-        func(root);
-        return root;
-    }
-    public void func(Node root)
-    {
-        if(root == null)
-        {
-            return;
-        }
-        Queue<Node> queue = new LinkedList<>();
-        queue.offer(root);
-        while(!queue.isEmpty())
-        {
-            int level = queue.size();
-            for(int i=0; i < level; i++)
-            {
-                Node curr = queue.poll();
-                if(i == level - 1)
-                {
-                    curr.next = null;
+        if (root == null) return null;
+
+        Node leftmost = root;
+
+        while (leftmost.left != null) {
+            Node curr = leftmost;
+
+            while (curr != null) {
+                // same parent
+                curr.left.next = curr.right;
+
+                // different parent
+                if (curr.next != null) {
+                    curr.right.next = curr.next.left;
                 }
-                else
-                {
-                    curr.next = queue.peek();
-                }
-                
-                if(curr.left != null)
-                {
-                    queue.offer(curr.left);
-                }
-                if(curr.right != null)
-                {
-                    queue.offer(curr.right);
-                }
+
+                curr = curr.next;
             }
+
+            leftmost = leftmost.left;
         }
+
+        return root;
     }
 }
