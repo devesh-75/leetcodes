@@ -11,17 +11,10 @@ class Solution {
         {
             set.add(nums[i]);
         }
-        int sum = 50*(50+1)/2;
-        if(!set.contains(prefix)) 
-            return prefix;
-        else
+        while(set.contains(prefix))
         {
-            for(int i=prefix+1; i<=sum; i++)
-            {
-                if(!set.contains(i))
-                return i;
-            }
+            prefix++;
         }
-        return nums[0]+1;
+        return prefix;
     }
 }
